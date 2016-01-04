@@ -1,8 +1,9 @@
 Package: loggr
-Title: What the Package Does (one line, title case)
+Title: Handling and Analyzing Data From Loggers
 Version: 0.0.0.9000
-Authors@R: person("First", "Last", email = "first.last@example.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
+Authors@R: person('Lars', 'Dalby', , 'lars.dalby@gmail.com', c('aut', 'cre'))
+Description: Handling and analyzing data from various loggers used to track
+	animals in ecology.
 Depends:
     R (>= 3.2.1)
 License: What license is it under?
