@@ -14,11 +14,11 @@ CleanRawFile = function(file, outfile){
 }
 
 TrimTab = function(x) {
-	locs = str_locate_all(x, '\t')[[1]]
+	locs = stringr::str_locate_all(x, '\t')[[1]]
 	index = locs[which(diff(locs[,1]) == 1)]
 	while(length(index) > 0){
-		str_sub(x, index[1], index[1]) = ''
-		locs = str_locate_all(x, '\t')[[1]]
+		stringr::str_sub(x, index[1], index[1]) = ''
+		locs = stringr::str_locate_all(x, '\t')[[1]]
 		index = locs[which(diff(locs[,1]) == 1)]
 	}
 	return(x)
