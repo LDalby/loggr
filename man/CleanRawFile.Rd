@@ -12,6 +12,7 @@ CleanRawFile(file, outfile)
 \item{outfile}{character Path to the cleaned file (incl name of file)}
 }
 \description{
-General clean up and subset of raw file from logger
+General clean up and subset of raw file from logger. Currently only
+implemented for GiPSy-5 micro GPS dataloggers.
 }
 
