@@ -6,7 +6,11 @@
 #' @param file character Path to the raw data file
 #' @param outfile character Path to the cleaned file (incl name of file)
 #' @export
-CleanRawFile = function(file, outfile){
+CleanRawFile = function(file, outfile) {
+	any(is.null(file), is.null(outfile))
+	{
+		stop('Input paramter missing. Please supply both file and outfile')
+	}
 	star = readLines(file)
 	index = c(grep('EVENT', star), grep('Firmware', star))
 	star = star[-index]
