@@ -4,14 +4,19 @@
 \alias{CleanRawFile}
 \title{Clean raw file from a logging device}
 \usage{
-CleanRawFile(file, outfile)
+CleanRawFile(file = NULL, outfile = NULL, HDOPmax = 3.02)
 }
 \arguments{
 \item{file}{character Path to the raw data file}
 
 \item{outfile}{character Path to the cleaned file (incl name of file)}
+
+\item{HDOPmax}{numeric The maximum value of HDOP allowed. Rows with values
+above this will be removed from the returned data.table and the cleaned file
+written to disk.}
 }
 \description{
-General clean up and subset of raw file from logger
+General clean up and subset of raw file from logger. Currently only
+implemented for GiPSy-5 micro GPS dataloggers.
 }
 
