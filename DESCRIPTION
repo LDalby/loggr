@@ -8,4 +8,7 @@ Depends:
     R (>= 3.2.1)
 License: GPL-3
 LazyData: true
+Imports:
+    data.table,
+    stringr
 RoxygenNote: 5.0.1
