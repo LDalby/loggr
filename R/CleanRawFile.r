@@ -30,7 +30,9 @@ CleanRawFile = function(file = NULL, outfile = NULL, HDOPmax = 3.02) {
 	dt[, NSat:=as.numeric(NSat)]
 	dt[, Dop:=as.numeric(Dop)]
 	dt[, GSVsum:=as.numeric(GSVsum)]
+	dt[, Date:=lubridate::dmy_hms(paste(Date, Time, sep = ' '))]
 	dt[, 'Position in file':=NULL]
+	dt[, Time:=NULL]
 	# Subset:
 	no.obs = nrow(dt[Dop >= HDOPmax,])  # Save to cat out later
 	dt = dt[Dop < HDOPmax,]
