@@ -35,7 +35,7 @@ CleanRawFile = function(file = NULL, outfile = NULL, HDOPmax = 3.02) {
 	no.obs = nrow(dt[Dop >= HDOPmax,])  # Save to cat out later
 	dt = dt[Dop < HDOPmax,]
 	if(!is.null(outfile)) {
-		write.table(dt, file = ourfile, row.names = FALSE, sep = '\t')
+		write.table(dt, file = outfile, row.names = FALSE, sep = '\t')
 	}
 	cat(paste0(no.obs, ' observations had HDOP values over ', HDOPmax, 
 		' and where removed\n'))
