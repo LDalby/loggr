@@ -21,8 +21,8 @@ CleanRawFile = function(file = NULL, outfile = NULL, HDOPmax = 3.02) {
 	rbtemp = do.call('rbind', temp[-1])
 	dt = as.data.table(rbtemp)
 	# Clean up names and set types:
-	setnames(dt, temp[[1]])
-	setnames(dt, old = 'Alt.', new = 'Alt')
+	data.table::setnames(dt, temp[[1]])
+	data.table::setnames(dt, old = 'Alt.', new = 'Alt')
 	dt[, Longitude:=as.numeric(Longitude)]
 	dt[, Latitude:=as.numeric(Latitude)]
 	dt[, Alt:=as.numeric(Alt)]
