@@ -19,7 +19,7 @@ CleanRawFile = function(file = NULL, outfile = NULL, HDOPmax = 3.02) {
 	res = sapply(star, FUN = TrimTab)
 	temp = stringr::str_split(res, pattern = '\t')
 	rbtemp = do.call('rbind', temp[-1])
-	dt = as.data.table(rbtemp)
+	dt = data.table::as.data.table(rbtemp)
 	# Clean up names and set types:
 	data.table::setnames(dt, temp[[1]])
 	data.table::setnames(dt, old = 'Alt.', new = 'Alt')
