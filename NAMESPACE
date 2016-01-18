@@ -2,4 +2,5 @@
 
 export(CleanRawFile)
 import(data.table)
+import(lubridate)
 import(stringr)
