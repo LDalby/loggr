@@ -10,5 +10,6 @@ License: GPL-3
 LazyData: true
 Imports:
     data.table,
-    stringr
+    stringr,
+    lubridate
 RoxygenNote: 5.0.1
