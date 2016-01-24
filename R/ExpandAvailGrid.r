@@ -9,7 +9,7 @@
 #' @param gridsize numeric Size of the grid (in meters)
 #' @export
 ExpandAvailGrid = function(polygons = NULL, gridsize = NULL) {
-	if(any(is.null(polygons, gridsize))){
+	if(any(is.null(polygons), is.null(gridsize))){
 		stop('Input parameter missing')
 	}
 	utm32 = sp::CRS("+proj=utm +zone=32 +ellps=WGS84 +datum=WGS84 +units=m +no_defs")
