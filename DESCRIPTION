@@ -11,5 +11,6 @@ LazyData: true
 Imports:
     data.table,
     stringr,
-    lubridate
+    lubridate,
+    sp
 RoxygenNote: 5.0.1
