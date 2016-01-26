@@ -8,7 +8,7 @@
 #' different habitat categories defined.
 #' @param gridsize numeric Size of the grid (in meters)
 #' @export
-ExpandAvailGrid = function(polygons = NULL, gridsize = NULL) {
+ExpandAvailGrid = function(polygons = NULL, gridsize = NULL, utm = TRUE) {
 	if(any(is.null(polygons), is.null(gridsize))){
 		stop('Input parameter missing')
 	}
@@ -21,6 +21,8 @@ ExpandAvailGrid = function(polygons = NULL, gridsize = NULL) {
 	availPoints = expand.grid(xvals, yvals)
 	sp::coordinates(availPoints) = ~Var1+Var2
 	sp::proj4string(availPoints) = utm32
+	if(!utm){
 	avll = sp::spTransform(availPoints, longlat)
+	}
 	return(avll)
 }

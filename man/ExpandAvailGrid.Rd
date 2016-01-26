@@ -4,7 +4,7 @@
 \alias{ExpandAvailGrid}
 \title{Expand grid of availability points}
 \usage{
-ExpandAvailGrid(polygons = NULL, gridsize = NULL)
+ExpandAvailGrid(polygons = NULL, gridsize = NULL, utm = TRUE)
 }
 \arguments{
 \item{gridsize}{numeric Size of the grid (in meters)}
