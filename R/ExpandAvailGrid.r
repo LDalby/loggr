@@ -22,7 +22,7 @@ ExpandAvailGrid = function(polygons = NULL, gridsize = NULL, utm = TRUE) {
 	sp::coordinates(availPoints) = ~Var1+Var2
 	sp::proj4string(availPoints) = utm32
 	if(!utm){
-	avll = sp::spTransform(availPoints, longlat)
+	return(sp::spTransform(availPoints, longlat))
 	}
-	return(avll)
+	return(availPoints)
 }
