@@ -2,5 +2,6 @@
 
 export(CleanRawFile)
 export(ExpandAvailGrid)
+export(ReclassifyHabitat)
 import(data.table)
 import(stringr)
