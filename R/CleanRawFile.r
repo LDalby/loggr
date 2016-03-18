@@ -1,12 +1,12 @@
 #' Clean raw file from a logging device
 #'
 #' General clean up and subset of raw file from logger. Currently only
-#' implemented for GiPSy-5 micro GPS logger and XXX data loggers
+#' implemented for GiPSy-5 micro GPS logger and HOBO data loggers
 #'
 #' @param file character Path to the raw data file
 #' @param outfile character Path to the cleaned file (incl name of file). 
 #'  Only used if type = GiPsS-5
-#' @param type character Type of the data logger
+#' @param type character Type of the data logger. Either gipsy-5 or hobo
 #' @param HDOPmax numeric The maximum value of HDOP allowed. Rows with values
 #' above this will be removed from the returned data.table and the cleaned file
 #' written to disk. Only used if type = GiPsS-5
@@ -50,7 +50,7 @@ CleanRawFile = function(file = NULL, outfile = NULL, HDOPmax = 3.02, type = NULL
 		}
 		return(dt)
 	}
-	if(tolower(type) == 'biowide') 
+	if(tolower(type) == 'hobo') 
 	{
 		temp = data.table::fread(file, skip = 1, verbose = FALSE,
 		 showProgress = FALSE)
