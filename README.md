@@ -20,7 +20,7 @@ files = dir(pathtologgers)
 LoggerList = vector('list', length(files))
 for (i in seq_along(files)) {
 	path = paste0(pathtologgers, files[i])
-	temp = CleanRawFile(file = path, type = 'biowide')
+	temp = CleanRawFile(file = path, type = 'hobo')
 	temp[, ID:=stringr::str_sub(files[i], end = -12)]
 	LoggerList[[i]] = temp
 }
