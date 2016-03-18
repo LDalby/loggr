@@ -9,16 +9,17 @@ CleanRawFile(file = NULL, outfile = NULL, HDOPmax = 3.02, type = NULL)
 \arguments{
 \item{file}{character Path to the raw data file}
 
-\item{outfile}{character Path to the cleaned file (incl name of file)}
+\item{outfile}{character Path to the cleaned file (incl name of file). 
+Only used if type = GiPsS-5}
 
 \item{HDOPmax}{numeric The maximum value of HDOP allowed. Rows with values
 above this will be removed from the returned data.table and the cleaned file
-written to disk.}
+written to disk. Only used if type = GiPsS-5}
 
-\item{type}{character Type of the data logger}
+\item{type}{character Type of the data logger. Either gipsy-5 or hobo}
 }
 \description{
 General clean up and subset of raw file from logger. Currently only
-implemented for GiPSy-5 micro GPS dataloggers.
+implemented for GiPSy-5 micro GPS logger and HOBO data loggers
 }
 
