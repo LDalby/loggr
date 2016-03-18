@@ -4,7 +4,7 @@
 \alias{CleanRawFile}
 \title{Clean raw file from a logging device}
 \usage{
-CleanRawFile(file = NULL, outfile = NULL, HDOPmax = 3.02)
+CleanRawFile(file = NULL, outfile = NULL, HDOPmax = 3.02, type = NULL)
 }
 \arguments{
 \item{file}{character Path to the raw data file}
@@ -14,6 +14,8 @@ CleanRawFile(file = NULL, outfile = NULL, HDOPmax = 3.02)
 \item{HDOPmax}{numeric The maximum value of HDOP allowed. Rows with values
 above this will be removed from the returned data.table and the cleaned file
 written to disk.}
+
+\item{type}{character Type of the data logger}
 }
 \description{
 General clean up and subset of raw file from logger. Currently only
