@@ -59,6 +59,7 @@ CleanRawFile = function(file = NULL, outfile = NULL, HDOPmax = 3.02, type = NULL
 		temp[, Time:=stringr::str_sub(DateTime, start = 10, end = 17)]
 		temp[, Date:=stringr::str_sub(DateTime, end = 8)]
 		temp[, AMPM:=stringr::str_sub(DateTime, start = -2)]
+		temp[, Date:=lubridate::mdy(Date)]
 		temp[, DateTime:=NULL]
 		setcolorder(temp, c('Date', 'Time', 'AMPM', 'Temp', 'RH'))
 		return(temp)
