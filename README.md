@@ -13,7 +13,7 @@ install_github('LDalby/loggr')
 
 ## Use
 A short example of using the CleanRawFile function to clean output from HOBO data loggers. In this example you have a bunch of data logger files sitting in a folder containing only logger files. It is assumed that the last 12 characters of the file name is date and extension. If this is not the case the code will break...
-```
+```s
 # Clean HOBO loggers
 pathtologgers = INSERT PATH TO DIRECTORY
 files = dir(pathtologgers)
