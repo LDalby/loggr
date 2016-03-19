@@ -6,7 +6,7 @@
 
 ## Installation
 Installing the latest version of *loggr* requires having the [*devtools*](https://cran.r-project.org/web/packages/devtools/index.html) package installed. Make sure you have that (on Win you need to install [*RTools*](https://cran.r-project.org/bin/windows/Rtools/) first) and then simply run the lines below:
-```s
+```R
 library(devtools)
 install_github('LDalby/loggr')
 ```
