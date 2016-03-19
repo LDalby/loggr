@@ -15,6 +15,9 @@ CleanRawFile = function(file = NULL, outfile = NULL, HDOPmax = 3.02, type = NULL
 	if(is.null(file)) {
 		stop('Path to raw file missing')
 	}
+	if(is.null(type)) {
+		stop('Logger type not specified. Use the type argument.\n See ?CleanRawFile')
+	}
 	if(tolower(type) == 'gipsy-5') {
 		star = readLines(file)
 		index = c(grep('EVENT', star), grep('Firmware', star))
