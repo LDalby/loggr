@@ -16,7 +16,7 @@ A short example of using the CleanRawFile function to clean output from HOBO dat
 
 The *beginendfile* file is a file with the three columns: BiotopID, start & stop. It is indicating the start and stop dates for each logger. To avoid the data which may have been recorded before deployment of the device. 
 
-```s
+```R
 # Clean HOBO loggers
 library(loggr)
 pathtologgers = INSERT PATH TO DIRECTORY
