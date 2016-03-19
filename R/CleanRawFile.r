@@ -53,8 +53,8 @@ CleanRawFile = function(file = NULL, outfile = NULL, HDOPmax = 3.02, type = NULL
 	if(tolower(type) == 'hobo') 
 	{
 		temp = data.table::fread(file, skip = 1, verbose = FALSE,
-		 showProgress = FALSE)
-		setnames(temp, c('foo','DateTime', 'Temp', 'RH', letters[1:5]))
+		 showProgress = FALSE, drop = c(1, 5:9))
+		setnames(temp, c('DateTime', 'Temp', 'RH'))
 		temp = temp[complete.cases(temp), .(DateTime, Temp, RH)]
 		temp[, Time:=stringr::str_sub(DateTime, start = 10, end = 17)]
 		temp[, Date:=stringr::str_sub(DateTime, end = 8)]
