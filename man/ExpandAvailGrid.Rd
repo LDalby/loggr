@@ -7,11 +7,14 @@
 ExpandAvailGrid(polygons = NULL, gridsize = NULL, utm = TRUE)
 }
 \arguments{
-\item{gridsize}{numeric Size of the grid (in meters)}
-
-\item{polygon}{SpatialPolygon Object defining the area over which the grid
+\item{polygons}{SpatialPolygon Object defining the area over which the grid
 will be expanded. Typically this will be a shape file of study area with 
 different habitat categories defined.}
+
+\item{gridsize}{numeric Size of the grid (in meters)}
+
+\item{utm}{logical Should the grid be in utm (TRUE and default) or 
+in longlat (FALSE)}
 }
 \description{
 Expand a grid of availability points over an area defined by a spatial 

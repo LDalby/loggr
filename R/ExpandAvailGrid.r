@@ -3,10 +3,12 @@
 #' Expand a grid of availability points over an area defined by a spatial 
 #' polygon (or other spatial object)
 #'
-#' @param polygon SpatialPolygon Object defining the area over which the grid
+#' @param polygons SpatialPolygon Object defining the area over which the grid
 #' will be expanded. Typically this will be a shape file of study area with 
 #' different habitat categories defined.
 #' @param gridsize numeric Size of the grid (in meters)
+#' @param utm logical Should the grid be in utm (TRUE and default) or 
+#' in longlat (FALSE)
 #' @export
 ExpandAvailGrid = function(polygons = NULL, gridsize = NULL, utm = TRUE) {
 	if(any(is.null(polygons), is.null(gridsize))){
