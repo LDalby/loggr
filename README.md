@@ -12,7 +12,7 @@ install_github('LDalby/loggr')
 ```
 
 ## Use
-A short example of using the CleanRawFile function to clean output from HOBO data loggers. In this example you have a bunch of data logger files sitting in a folder containing only logger files. It is assumed that the last 12 characters of the file name is date and extension. If this is not the case the code will break...
+A short example of using the CleanRawFile function to clean output from HOBO data loggers. In this example you have a bunch of data logger files sitting in a folder containing only logger files. It is assumed that all the characters before the last underscore is the logger ID. If this is not the case you might get funky stuff out...
 
 The *beginendfile* file is a file with the three columns: BiotopID, start & stop. It is indicating the start and stop dates for each logger. To avoid the data which may have been recorded before deployment of the device. 
 
@@ -26,7 +26,9 @@ beginendfile = fread(INSERT PATH TO START STOP)
 for (i in seq_along(files)) {
 	path = paste0(pathtologgers, files[i])
 	temp = CleanRawFile(file = path, type = 'hobo')
-	id = stringr::str_sub(files[i], end = -12)
+	uscorelocs = stringr::str_locate_all(files[i], '_')
+	lastuscore = max(unlist(uscorelocs))
+    id = stringr::str_sub(files[i], end = lastuscore-1)
 	temp[, ID:=id]
 	start = beginendfile[BiotopID == id, start]
 	stop = beginendfile[BiotopID == id, stop]
