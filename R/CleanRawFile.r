@@ -70,7 +70,7 @@ CleanRawFile = function(file = NULL, outfile = NULL, HDOPmax = 3.02, type = NULL
 	if(tolower(type) == 'b5') {
 		dropcols = c('key-bin-checksum', 'start-timestamp', 'used-time-to-get-fix', 'battery-voltage')
 		temp = data.table::fread(file, drop = dropcols)
-		colnames = c('ID', 'Longitude', 'Latitude', 'Altitude', 'FixType', 'Status', 'TimeStamp',
+		colnames = c('LoggerID', 'Longitude', 'Latitude', 'Altitude', 'FixType', 'Status', 'TimeStamp',
 			'Battery', 'Temperature', 'Speed', 'Heading', 'SpeedAccuracy', 'AltitudeAccuracy')
 		setnames(temp, colnames)
 		temp[, TimeStamp:=lubridate::ymd_hms(TimeStamp)]
