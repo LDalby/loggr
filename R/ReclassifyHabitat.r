@@ -26,7 +26,7 @@ ReclassifyHabitat = function(Habitat = NULL, type = NULL) {
 		# Default
 			'SomeFunkyCrop')
 	}
-	if(tolower(Habitat) == 'hare'){
+	if(tolower(type) == 'hare'){
 		switch(EXPR = as.character(Habitat),
 			'1' = 'Beans',
 			'2' = 'Oat',
