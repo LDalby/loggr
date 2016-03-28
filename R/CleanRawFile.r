@@ -74,6 +74,7 @@ CleanRawFile = function(file = NULL, outfile = NULL, HDOPmax = 3.02, type = NULL
 			'Battery', 'Temperature', 'Speed', 'Heading', 'SpeedAccuracy', 'AltitudeAccuracy')
 		setnames(temp, colnames)
 		temp[, TimeStamp:=lubridate::ymd_hms(TimeStamp)]
+		temp[!is.na(Longitude) & !is.na(Latitude),]
 		return(temp)
 	}
 }
