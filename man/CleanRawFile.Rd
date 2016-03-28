@@ -16,10 +16,10 @@ Only used if type = GiPsS-5}
 above this will be removed from the returned data.table and the cleaned file
 written to disk. Only used if type = GiPsS-5}
 
-\item{type}{character Type of the data logger. Either gipsy-5 or hobo}
+\item{type}{character Type of the data logger. Either gipsy-5, hobo or b5}
 }
 \description{
-General clean up and subset of raw file from logger. Currently only
-implemented for GiPSy-5 micro GPS logger and HOBO data loggers
+General clean up and subset of raw file from logger. Currently 
+implemented for GiPSy-5 micro and B5 GPS loggers and for HOBO data loggers
 }
 

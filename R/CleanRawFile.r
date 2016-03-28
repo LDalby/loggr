@@ -1,12 +1,12 @@
 #' Clean raw file from a logging device
 #'
-#' General clean up and subset of raw file from logger. Currently only
-#' implemented for GiPSy-5 micro GPS logger and HOBO data loggers
+#' General clean up and subset of raw file from logger. Currently 
+#' implemented for GiPSy-5 micro and B5 GPS loggers and for HOBO data loggers
 #'
 #' @param file character Path to the raw data file
 #' @param outfile character Path to the cleaned file (incl name of file). 
 #'  Only used if type = GiPsS-5
-#' @param type character Type of the data logger. Either gipsy-5 or hobo
+#' @param type character Type of the data logger. Either gipsy-5, hobo or b5
 #' @param HDOPmax numeric The maximum value of HDOP allowed. Rows with values
 #' above this will be removed from the returned data.table and the cleaned file
 #' written to disk. Only used if type = GiPsS-5
@@ -56,7 +56,7 @@ CleanRawFile = function(file = NULL, outfile = NULL, HDOPmax = 3.02, type = NULL
 	if(tolower(type) == 'hobo') 
 	{
 		temp = data.table::fread(file, skip = 1, verbose = FALSE,
-		 showProgress = FALSE, drop = c(1, 5:9))
+			showProgress = FALSE, drop = c(1, 5:9))
 		setnames(temp, c('DateTime', 'Temp', 'RH'))
 		temp = temp[complete.cases(temp), .(DateTime, Temp, RH)]
 		temp[, Time:=stringr::str_sub(DateTime, start = 10, end = 17)]
@@ -67,7 +67,15 @@ CleanRawFile = function(file = NULL, outfile = NULL, HDOPmax = 3.02, type = NULL
 		setcolorder(temp, c('Date', 'Time', 'AMPM', 'Temp', 'RH'))
 		return(temp)
 	}
-
+	if(tolower(type) == 'b5') {
+		dropcols = c('key-bin-checksum', 'start-timestamp', 'used-time-to-get-fix', 'battery-voltage')
+		temp = data.table::fread(file, drop = dropcols)
+		colnames = c('ID', 'Longitude', 'Latitude', 'Altitude', 'FixType', 'Status', 'TimeStamp',
+			'Battery', 'Temperature', 'Speed', 'Heading', 'SpeedAccuracy', 'AltitudeAccuracy')
+		setnames(temp, colnames)
+		temp[, TimeStamp:=lubridate::ymd_hms(TimeStamp)]
+		return(temp)
+	}
 }
 
 TrimTab = function(x) {
