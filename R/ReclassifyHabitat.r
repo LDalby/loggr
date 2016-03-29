@@ -11,7 +11,7 @@ ReclassifyHabitat = function(Habitat = NULL, type = NULL) {
 	}
 	Habitat = stringr::str_trim(Habitat, side = 'both')
 	if(tolower(type) == 'starling') {
-		switch(EXPR = tolower(Habitat),
+		switch(EXPR = tolower(as.character(Habitat)),
 			'winter wheat' = 'wintercrop',
 			'winter rye' = 'wintercrop',
 			'bar mark' = 'baresoil',
