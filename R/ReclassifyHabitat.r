@@ -1,17 +1,16 @@
 #' Reclassify habitat types
 #'
-#' Reclassify raw habitat types into few groups
+#' Reclassify raw habitat types into fewer groups
 #'
 #' @param Habitat character The habitat type
-#' @param type character The project - either starling or hare
 #' @export
-ReclassifyHabitat = function(Habitat = NULL, type = NULL) {
-	if(any(is.null(Habitat), is.null(type))){
+ReclassifyHabitat = function(Habitat = NULL) {
+	if(any(is.null(Habitat), is.null(type))) {
 		stop('Input parameter missing')
 	}
 	Habitat = stringr::str_trim(Habitat, side = 'both')
-	if(tolower(type) == 'starling') {
-		switch(EXPR = tolower(as.character(Habitat)),
+	switch(EXPR = tolower(Habitat),
+			# Starling
 			'winter wheat' = 'wintercrop',
 			'winter rye' = 'wintercrop',
 			'bar mark' = 'baresoil',
@@ -23,11 +22,7 @@ ReclassifyHabitat = function(Habitat = NULL, type = NULL) {
 			'spring oat' = 'springcrop',
 			'farm' = 'farm',
 			'grass' = 'grass',
-		# Default
-			'SomeFunkyCrop')
-	}
-	if(tolower(type) == 'hare'){
-		switch(EXPR = as.character(Habitat),
+			# Hare
 			'1' = 'Beans',
 			'2' = 'Oat',
 			'3' = 'Wheat',
@@ -40,7 +35,7 @@ ReclassifyHabitat = function(Habitat = NULL, type = NULL) {
 			'10' = 'Remise',
 			'11' = 'Vildtager',
 			'12' = 'WinterWheat',
-			'13' = 'Stubble')
-	}
+			'13' = 'Stubble',
+			'Default')
 }
 

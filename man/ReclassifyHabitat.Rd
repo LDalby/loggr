@@ -4,14 +4,12 @@
 \alias{ReclassifyHabitat}
 \title{Reclassify habitat types}
 \usage{
-ReclassifyHabitat(Habitat = NULL, type = NULL)
+ReclassifyHabitat(Habitat = NULL)
 }
 \arguments{
 \item{Habitat}{character The habitat type}
-
-\item{type}{character The project - either starling or hare}
 }
 \description{
-Reclassify raw habitat types into few groups
+Reclassify raw habitat types into fewer groups
 }
 
