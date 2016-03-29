@@ -5,7 +5,7 @@
 #' @param Habitat character The habitat type
 #' @export
 ReclassifyHabitat = function(Habitat = NULL) {
-	if(any(is.null(Habitat), is.null(type))) {
+	if(is.null(Habitat)) {
 		stop('Input parameter missing')
 	}
 	Habitat = stringr::str_trim(Habitat, side = 'both')
