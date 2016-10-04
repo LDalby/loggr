@@ -37,6 +37,7 @@ CleanRawFile = function(file = NULL, outfile = NULL, HDOPmax = 3.02, type = NULL
 		dt[, Dop:=as.numeric(Dop)]
 		dt[, GSVsum:=as.numeric(GSVsum)]
 		dt[, Date:=lubridate::dmy_hms(paste(Date, Time, sep = ' '))]
+		dt = dt[!is.na(Date)]  # in case of parsing error due to recording error.
 		dt[, 'Position in file':=NULL]
 		dt[, Time:=NULL]
 	# Subset:
